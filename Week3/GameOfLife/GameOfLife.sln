@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Src", "GameOfLif
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Test", "GameOfLife\GameOfLife.Test\GameOfLife.Test.csproj", "{E36EC256-EF7A-401D-A6D0-BE52A3B7CAFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLifeCalisthenics.Test", "GameOfLifeCalisthenics.Test\GameOfLifeCalisthenics.Test.csproj", "{A4CB592C-7C3F-4F68-B299-66A9851A83A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLifeCalisthenics.Src", "GameOfLifeCalisthenics.Src\GameOfLifeCalisthenics.Src.csproj", "{33CF8C9E-B089-4EFD-85B7-AEEFDAD0FD05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E36EC256-EF7A-401D-A6D0-BE52A3B7CAFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E36EC256-EF7A-401D-A6D0-BE52A3B7CAFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E36EC256-EF7A-401D-A6D0-BE52A3B7CAFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4CB592C-7C3F-4F68-B299-66A9851A83A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4CB592C-7C3F-4F68-B299-66A9851A83A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4CB592C-7C3F-4F68-B299-66A9851A83A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4CB592C-7C3F-4F68-B299-66A9851A83A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33CF8C9E-B089-4EFD-85B7-AEEFDAD0FD05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33CF8C9E-B089-4EFD-85B7-AEEFDAD0FD05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33CF8C9E-B089-4EFD-85B7-AEEFDAD0FD05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33CF8C9E-B089-4EFD-85B7-AEEFDAD0FD05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
