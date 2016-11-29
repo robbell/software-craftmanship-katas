@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Moq;
@@ -22,7 +23,7 @@ namespace BankAccountLondonStyle.UnitTests
             var stream = new StringWriter(output);
             Console.SetOut(stream);
 
-            var atm = new Atm(new Printer(), new Account());
+            var atm = new Atm(new Printer(), new Account(), new StatementFormatter());
 
             atm.Deposit(1000);
             atm.Deposit(2000);
@@ -37,7 +38,7 @@ namespace BankAccountLondonStyle.UnitTests
         {
             var account = new Mock<Account>();
 
-            var atm = new Atm(null, account.Object);
+            var atm = new Atm(null, account.Object, new StatementFormatter());
 
             atm.Deposit(200);
 
@@ -49,7 +50,7 @@ namespace BankAccountLondonStyle.UnitTests
         {
             var account = new Mock<Account>();
 
-            var atm = new Atm(null, account.Object);
+            var atm = new Atm(null, account.Object, new StatementFormatter());
 
             atm.Withdraw(200);
 
@@ -59,11 +60,11 @@ namespace BankAccountLondonStyle.UnitTests
         [Test]
         public void GetStatementFromAccount()
         {
-            var expectedStatement = new AccountStatement();
-            var account = Mock.Of<Account>(a => a.CreateStatement() == expectedStatement);
+            var expectedStatement = "My statement headings";
+            var statementFormatter = Mock.Of<StatementFormatter>(a => a.CreateStatement(It.IsAny<IList<Transaction>>()) == expectedStatement);
             var printer = Mock.Of<Printer>();
 
-            var atm = new Atm(printer, account);
+            var atm = new Atm(printer, new Account(), statementFormatter);
 
             atm.PrintStatement();
 

@@ -4,16 +4,18 @@
     {
         private readonly Printer printer;
         private readonly Account account;
+        private readonly StatementFormatter statementFormatter;
 
-        public Atm(Printer printer, Account account)
+        public Atm(Printer printer, Account account, StatementFormatter statementFormatter)
         {
             this.printer = printer;
             this.account = account;
+            this.statementFormatter = statementFormatter;
         }
 
         public void PrintStatement()
         {
-            printer.PrintStatement(account.CreateStatement());
+            printer.PrintStatement(statementFormatter.CreateStatement(null));
         }
 
         public void Deposit(int amount)
