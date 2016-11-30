@@ -1,4 +1,6 @@
-﻿namespace BankAccountLondonStyle.UnitTests
+﻿using System.Linq;
+
+namespace BankAccountLondonStyle.UnitTests
 {
     public class Atm
     {
@@ -15,7 +17,7 @@
 
         public void PrintStatement()
         {
-            printer.PrintStatement(statementFormatter.CreateStatement(null));
+            printer.PrintStatement(statementFormatter.CreateStatement(account.ListTransactions()));
         }
 
         public void Deposit(int amount)

@@ -66,6 +66,7 @@
     <Compile Include="AccountShould.cs" />
     <Compile Include="AccountStatement.cs" />
     <Compile Include="Atm.cs" />
+    <Compile Include="Clock.cs" />
     <Compile Include="Credit.cs" />
     <Compile Include="Debit.cs" />
     <Compile Include="Printer.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatementFormatter.cs" />
     <Compile Include="StatementFormatterShould.cs" />
+    <Compile Include="Transaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

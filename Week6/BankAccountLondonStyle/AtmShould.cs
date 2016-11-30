@@ -23,11 +23,18 @@ namespace BankAccountLondonStyle.UnitTests
             var stream = new StringWriter(output);
             Console.SetOut(stream);
 
-            var atm = new Atm(new Printer(), new Account(), new StatementFormatter());
+            var clock = new Mock<Clock>();
+            var atm = new Atm(new Printer(), new Account(clock.Object), new StatementFormatter());
 
+            clock.Setup(c => c.Now()).Returns(new DateTime(2012, 1, 10));
             atm.Deposit(1000);
+
+            clock.Setup(c => c.Now()).Returns(new DateTime(2012, 1, 13));
             atm.Deposit(2000);
+
+            clock.Setup(c => c.Now()).Returns(new DateTime(2012, 1, 14));
             atm.Withdraw(500);
+
             atm.PrintStatement();
 
             Assert.That(output.ToString(), Is.EqualTo(expectedTransactions));
@@ -64,7 +71,7 @@ namespace BankAccountLondonStyle.UnitTests
             var statementFormatter = Mock.Of<StatementFormatter>(a => a.CreateStatement(It.IsAny<IList<Transaction>>()) == expectedStatement);
             var printer = Mock.Of<Printer>();
 
-            var atm = new Atm(printer, new Account(), statementFormatter);
+            var atm = new Atm(printer, new Account(new Clock()), statementFormatter);
 
             atm.PrintStatement();
 

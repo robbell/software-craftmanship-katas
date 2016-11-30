@@ -24,7 +24,7 @@ namespace BankAccountLondonStyle.UnitTests
             var statementFormatter = new StatementFormatter();
             var transactions = new List<Transaction> { new Credit { Amount = 1000, Date = new DateTime(2012, 1, 10) } };
 
-            var expectedStatement = 
+            var expectedStatement =
 @"date || credit || debit || balance
 10 / 01 / 2012 || 1000.00 || || 1000.00";
 
@@ -41,22 +41,27 @@ namespace BankAccountLondonStyle.UnitTests
 
             var expectedStatement =
 @"date || credit || debit || balance
-14 / 01 / 2012 || || 500.00 || 500.00";
+14 / 01 / 2012 || || 500.00 || -500.00";
 
             var statement = statementFormatter.CreateStatement(transactions);
 
             Assert.That(statement, Is.EqualTo(expectedStatement));
         }
 
-        [Test, Ignore("Not yet implemented")]
+        [Test]
         public void CreateStatementWithTwoDeposits()
         {
             var statementFormatter = new StatementFormatter();
-            var transactions = new List<Transaction> { new Debit { Amount = 500, Date = new DateTime(2012, 1, 14) } };
+            var transactions = new List<Transaction>
+            {
+                new Credit {Amount = 500, Date = new DateTime(2012, 1, 14)},
+                new Credit {Amount = 250, Date = new DateTime(2012, 1, 15)}
+            };
 
             var expectedStatement =
 @"date || credit || debit || balance
-14 / 01 / 2012 || || 500.00 || 500.00";
+15 / 01 / 2012 || 250.00 || || 750.00
+14 / 01 / 2012 || 500.00 || || 500.00";
 
             var statement = statementFormatter.CreateStatement(transactions);
 
